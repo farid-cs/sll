@@ -6,7 +6,7 @@ all: sample
 sample: sample.o sll.o
 	${CC} -o $@ sample.o sll.o
 
-sample.o: sample.c
+sample.o: sample.c sll.h
 sll.o: sll.c sll.h
 
 clean:
