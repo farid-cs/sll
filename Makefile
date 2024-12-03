@@ -1,13 +1,14 @@
 CC = cc
 CFLAGS = -std=c99 -pedantic -Wall -Wextra
 
+OBJ = sample.o sll.o
+
 all: sample
 
-sample: sample.o sll.o
-	${CC} -o $@ sample.o sll.o
+sample: ${OBJ}
+	${CC} -o $@ ${OBJ}
 
-sample.o: sample.c sll.h
-sll.o: sll.c sll.h
+${OBJ}: sll.h
 
 clean:
 	rm -f sample *.o
