@@ -33,6 +33,6 @@ struct SLL {
 };
 
 void sll_init(SLL *);
-void sll_push(SLL *, int);
+int sll_push(SLL *, int);
 void sll_pop(SLL *);
 void sll_free(SLL *);

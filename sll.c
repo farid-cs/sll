@@ -32,16 +32,19 @@ sll_init(SLL *list)
 	list->head = NULL;
 }
 
-void
+int
 sll_push(SLL *list, int value)
 {
 	struct Node *new_head;
 
 	new_head = malloc(sizeof(Node));
-	assert(new_head != NULL);
+	if (new_head == NULL)
+		return -1;
+
 	new_head->value = value;
 	new_head->next = list->head;
 	list->head = new_head;
+	return 0;
 }
 
 void
