@@ -7,7 +7,7 @@ sample: sample.o sll.o
 	${CC} -o $@ sample.o sll.o
 
 sample.o: sample.c
-list.o: list.c list.h
+sll.o: sll.c sll.h
 
 clean:
 	rm -f sample *.o
