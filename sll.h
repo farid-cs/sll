@@ -27,13 +27,8 @@ struct Node {
 	struct Node *next;
 };
 
-typedef struct SLL SLL;
-struct SLL {
-	struct Node *head;
-};
-
-void sll_init(SLL *);
-int sll_push(SLL *, int);
-void sll_pop(SLL *);
-void sll_free(SLL *);
-Node *sll_find(SLL *, int);
+void sll_init(Node *);
+int sll_push(Node *, int);
+void sll_pop(Node *);
+void sll_free(Node *);
+Node *sll_find(Node *, int);

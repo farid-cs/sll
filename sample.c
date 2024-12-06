@@ -6,14 +6,14 @@
 int
 main(void)
 {
-	SLL list;
+	Node list;
 
 	sll_init(&list);
 	assert(sll_push(&list, 1) >= 0);
 	assert(sll_push(&list, 2) >= 0);
 	assert(sll_push(&list, 3) >= 0);
 
-	for (Node *node = list.head; node != NULL; node = node->next)
+	for (Node *node = list.next; node != NULL; node = node->next)
 		printf("value: %d\n", node->value);
 
 	sll_free(&list);

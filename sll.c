@@ -26,13 +26,13 @@
 #include "sll.h"
 
 void
-sll_init(SLL *list)
+sll_init(Node *dummy)
 {
-	list->head = NULL;
+	dummy->next = NULL;
 }
 
 int
-sll_push(SLL *list, int value)
+sll_push(Node *dummy, int value)
 {
 	struct Node *new_head;
 
@@ -41,25 +41,25 @@ sll_push(SLL *list, int value)
 		return -1;
 
 	new_head->value = value;
-	new_head->next = list->head;
-	list->head = new_head;
+	new_head->next = dummy->next;
+	dummy->next = new_head;
 	return 0;
 }
 
 void
-sll_pop(SLL *list)
+sll_pop(Node *dummy)
 {
 	struct Node *old_head;
 
-	old_head = list->head;
-	list->head = old_head->next;
+	old_head = dummy->next;
+	dummy->next = old_head->next;
 	free(old_head);
 }
 
 Node *
-sll_find(SLL *list, int key)
+sll_find(Node *dummy, int key)
 {
-	for (Node *i = list->head; i; i = i->next)
+	for (Node *i = dummy->next; i; i = i->next)
 		if (i->value == key)
 			return i;
 
@@ -67,8 +67,8 @@ sll_find(SLL *list, int key)
 }
 
 void
-sll_free(SLL *list)
+sll_free(Node *dummy)
 {
-	while (list->head)
-		sll_pop(list);
+	while (dummy->next)
+		sll_pop(dummy);
 }
