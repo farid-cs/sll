@@ -56,6 +56,16 @@ sll_pop(SLL *list)
 	free(old_head);
 }
 
+Node *
+sll_find(SLL *list, int key)
+{
+	for (Node *i = list->head; i; i = i->next)
+		if (i->value == key)
+			return i;
+
+	return NULL;
+}
+
 void
 sll_free(SLL *list)
 {

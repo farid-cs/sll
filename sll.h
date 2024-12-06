@@ -36,3 +36,4 @@ void sll_init(SLL *);
 int sll_push(SLL *, int);
 void sll_pop(SLL *);
 void sll_free(SLL *);
+Node *sll_find(SLL *, int);
