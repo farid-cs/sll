@@ -32,3 +32,4 @@ int sll_push(Node *, int);
 void sll_pop(Node *);
 void sll_free(Node *);
 Node *sll_find(Node *, int);
+void sll_sort(Node *);

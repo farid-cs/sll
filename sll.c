@@ -67,6 +67,33 @@ sll_find(Node *dummy, int key)
 }
 
 void
+sll_sort(Node *dummy)
+{
+	Node sorted;
+
+	if (!dummy->next || !dummy->next->next)
+		return;
+
+	sll_init(&sorted);
+	while (dummy->next) {
+		Node *max, *max_prev;
+
+		max_prev = dummy;
+		for (Node *i = dummy; i->next; i = i->next)
+			if (max_prev->next->value < i->next->value)
+				max_prev = i;
+
+		max = max_prev->next;
+		max_prev->next = max->next;
+
+		max->next = sorted.next;
+		sorted.next = max;
+	}
+
+	dummy->next = sorted.next;
+}
+
+void
 sll_free(Node *dummy)
 {
 	while (dummy->next)
